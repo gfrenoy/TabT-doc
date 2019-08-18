@@ -3,7 +3,7 @@
 [![License][license-badge]][license-url]
 
 TabT provides a complete and powerful software suite to access and manage results of matches,
-tournaments and competitions of table tennis.
+tournaments and competitions of individual sports like table tennis or darts.
 
 See http://tabt.frenoy.net for more information
 
