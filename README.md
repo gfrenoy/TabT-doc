@@ -16,11 +16,11 @@ This repository aims to centralize the user documentation of the TabT project.
 [<img src="http://api.frenoy.net/mastodon.png" align="left" width="50px" height="54px" />](https://babelut.be/@tabt)
  
 To keep up to date of the latest changes or for questions and suggestions or any kind of
-interaction with the developpers and other users of TabT API, we strongly suggest you to
+interaction with the developpers and other TabT users, we strongly suggest you to
 follow the TabT account on the [Fediverse](https://en.wikipedia.org/wiki/Fediverse) [Mastodon](https://joinmastodon.org/) :
 [@tabt@babelut.be](https://babelut.be/@tabt).
 
-And please post bug reports or feature requests to : https://github.com/gfrenoy/TabT-API/issues
+And please post bug reports or feature requests to : https://github.com/gfrenoy/TabT-doc/issues
 
 ## License
 
