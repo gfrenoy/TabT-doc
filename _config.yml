@@ -1,5 +1,9 @@
 title: TabT-doc
 description: TabT provides a complete and powerful software suite to access and manage results of matches, tournaments and competitions of individual sports like table tennis or darts. 
+baseurl: "/TabT-doc"
+url: "https://gfrenoy.github.io"
+
+permalink: pretty
 
 # Do not consider some repository files
 exclude:
