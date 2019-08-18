@@ -1,0 +1,35 @@
+title: TabT-doc
+description: TabT provides a complete and powerful software suite to access and manage results of matches, tournaments and competitions of individual sports like table tennis or darts. 
+
+# Do not consider some repository files
+exclude:
+  - LICENSE
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+
+# Base theme
+theme: "just-the-docs"
+
+# Enable search tool
+search_enabled: true
+
+# Aux links for the upper right navigation
+aux_links:
+    "Demo":
+      - "https://tabt-dev.vttl.be"
+
+# Footer content appears at the bottom of every page's main content
+footer_content: "Copyright &copy; 2001-2019 Gaëtan Frenoy. Distributed by an <a href=\"https://github.com/gfrenoy/TabT-doc/tree/master/LICENSE\">GNU Affero General Public License.</a>"
+
+# AsciiDoc specific
+asciidoc: {}
+
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  attributes:
+    - idseparator=_
+    - source-highlighter=coderay
+    - icons=font
