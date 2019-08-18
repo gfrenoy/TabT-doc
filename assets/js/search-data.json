@@ -1,0 +1,9 @@
+{
+  "0": {
+    "id": "0",
+    "title": "Home",
+    "content": "The main TabT objective is toProvide a complete and powerful software suite to access and manage results of matches, tournaments and competitions of individual sports.The whole concept and all the tools created by this project will be available to everyone under a free GPL license.Getting startedTo learn about TabT, a demo website is available at https://tabt-dev.vttl.be/.  It runs a demonstration database with anonymized resultats of some past seasons.  This database will also be used to illustrate this documentation.Main TabT conceptsTabT is defining the following main concepts:Member: a member is a single personClub: a club is an organisation grouping several membersTeam: a team is a group of members playing together against another teamMatch: a match is an event where two teams play against each otherDivision: a division is a group of teams playing a list of matchesCalendar: a calendar is the list of matches to be played within a divisionGame: a game is an event where two individual members play against each otherTournament: a tournament is an event where games between members are organised per categories",
+    "url": "/",
+    "relUrl": "/"
+  }
+}
