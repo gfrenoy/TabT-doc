@@ -357,6 +357,9 @@ td,
 th {
   padding: 0; }
 
+.site-footer {
+  display: none; }
+
 * {
   box-sizing: border-box; }
 

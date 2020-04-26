@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>Upload - TabT-doc</title>
+  <link rel="stylesheet" href="https://gfrenoy.github.io/TabT-doc/assets/css/just-the-docs.css">
+  
+  <script type="text/javascript" src="https://gfrenoy.github.io/TabT-doc/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="https://gfrenoy.github.io/TabT-doc/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+  <div class="page-wrap">
+    <div class="side-bar">
+      <a href="https://gfrenoy.github.io/TabT-doc" class="site-title fs-6 text-grey-dk-300 lh-tight">TabT-doc</a>
+      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+      <div class="navigation main-nav js-main-nav">
+        <nav>
+  <ul class="navigation-list">
+  
+  
+      <li class="navigation-list-item js-side-nav-item">
+        
+        <a href="https://gfrenoy.github.io/TabT-doc/" class="navigation-list-link">Home</a>
+          
+        
+      </li>
+  
+      <li class="navigation-list-item active js-side-nav-item">
+        
+        <a href="https://gfrenoy.github.io/TabT-doc/docs/upload/" class="navigation-list-link active">Upload</a>
+          
+        
+      </li>
+  
+  </ul>
+</nav>
+
+      </div>
+      <footer role="contentinfo" class="site-footer">
+        <p class="text-small text-grey-dk-000 mb-0">This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</p>
+      </footer>
+    </div>
+    <div class="main-content-wrap">
+      <div class="page-header">
+        <div class="main-content">
+          
+          <div class="search js-search">
+            <div class="search-input-wrap">
+              <input type="text" class="js-search-input search-input" placeholder="Search TabT-doc" aria-label="Search TabT-doc" autocomplete="off">
+              <svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg>
+            </div>
+            <div class="js-search-results search-results-wrap"></div>
+          </div>
+          
+          
+            <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+              
+                <li class="d-inline-block my-0"><a href="https://tabt-dev.vttl.be">Demo</a></li>
+              
+            </ul>
+          
+        </div>
+      </div>
+      <div class="main-content">
+        
+          
+        
+        <div class="page-content">
+          <h1 class="no_toc" id="upload">Upload</h1>
+
+<p>In order to allow other applications to send data into TabT, and to ensure <a href="http://en.wikipedia.org/wiki/Interoperability">interoperability</a> with applications based on TabT data, an upload format is provided.</p>
+
+<p>This upload format is based on the use of simple text files that can easily be verified by humans.</p>
+
+<h2 class="no_toc" id="general">General</h2>
+
+<p>An upload file is a text file composed of lines and columns.</p>
+
+<p><strong>Line separator</strong> : line end (ASCII 13) or carriage return (ASCII 10 + ASCII 13)</p>
+
+<p><strong>Column separator</strong> : semi column (;)</p>
+
+<h2 class="no_toc" id="first-column">First column</h2>
+
+<p>The first column determines the type of information that will be sent to the server. It consists of one or two characters. Possible values are:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#line-c--heading-or-comments" id="markdown-toc-line-c--heading-or-comments">Line “C” : Heading or comments</a></li>
+  <li><a href="#line-i--change-in-a-result-of-a-team-match-aka-interclub" id="markdown-toc-line-i--change-in-a-result-of-a-team-match-aka-interclub">Line “I” : Change in a result of a team match (aka interclub)</a></li>
+  <li><a href="#line-tr--change-in-a-tournament-configuration" id="markdown-toc-line-tr--change-in-a-tournament-configuration">Line “TR” : Change in a tournament configuration</a></li>
+  <li><a href="#line-t--change-in-a-tournament-result" id="markdown-toc-line-t--change-in-a-tournament-result">Line “T” : Change in a tournament result</a></li>
+  <li><a href="#line-n--change-in-the-new-ranking-of-a-player" id="markdown-toc-line-n--change-in-the-new-ranking-of-a-player">Line “N” : Change in the new ranking of a player</a></li>
+  <li><a href="#line-p--change-in-a-player-information" id="markdown-toc-line-p--change-in-a-player-information">Line “P” : Change in a player information</a></li>
+  <li><a href="#line-l--change-in-a-team-match-schedule" id="markdown-toc-line-l--change-in-a-team-match-schedule">Line “L” : Change in a team match schedule</a></li>
+</ul>
+
+<h2 id="line-c--heading-or-comments">Line “C” : Heading or comments</h2>
+
+<p>This line defines a free comment and is ignored.  The number and contents of the next columns are free.</p>
+
+<p class="label label-blue">Example</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;This is a free comment;With several columns;All ignored
+</code></pre></div></div>
+
+<h2 id="line-i--change-in-a-result-of-a-team-match-aka-interclub">Line “I” : Change in a result of a team match (aka interclub)</h2>
+
+<p>With this line type interclub results are uploaded. It needs the following columns :</p>
+
+<ul>
+  <li>Season of the match ;</li>
+  <li>Match identifier ;</li>
+  <li>Home club ;</li>
+  <li>Visiting club ;</li>
+  <li>Home players list;</li>
+  <li>Visiting players list;</li>
+</ul>
+
+<h3 class="no_toc" id="season">Season</h3>
+
+<p>The identifier is a number which corresponds with a season:</p>
+
+<ul>
+  <li>5 = 2004-2005</li>
+  <li>6 = 2005-2006</li>
+  <li>7 = 2006-2007</li>
+  <li>etc.</li>
+</ul>
+
+<h3 class="no_toc" id="match-identifier">Match identifier</h3>
+
+<p>Unique identifier of the match for which the results will be uploaded.</p>
+
+<p>This number is the same as the one given by the TabT application.</p>
+
+<p class="label label-blue">Examples</p>
+
+<p><code class="highlighter-rouge">NH03/031</code>, <code class="highlighter-rouge">PWVLD09/183</code> or <code class="highlighter-rouge">PVLBH17/019</code>.</p>
+
+<h3 class="no_toc" id="home-club">Home club</h3>
+
+<p>Home club index or “bye” if the visiting team does not play a match this week (but still has to send a team composition).</p>
+
+<h3 class="no_toc" id="visiting-club">Visiting club</h3>
+
+<p>Same as home club but for the visiting club.</p>
+
+<h3 class="no_toc" id="home-players-list">Home players list</h3>
+
+<p>The list of affiliation numbers of the home players who play the match.
+This list consists of maximum four numbers of 6 characters, separated by a comma (,).</p>
+
+<p>If the player affiliation number is preceded by a dash (-), the player is W-O for all matches.  If the player affiliation number is not know, it must be replaced by a question mark (?).
+The number of players has to be equal to the number of players determined for this match.</p>
+
+<p>This column may be completely empty if a result type ‘U’ is used (see below).</p>
+
+<p>If there are one or more double matches, the list will consist of one or more extra elements, containing the composition of the dubbel team(s).
+This composition consists of :</p>
+
+<ul>
+  <li>The number of the first double player</li>
+  <li>a dash (-)</li>
+  <li>The number of the second double player</li>
+</ul>
+
+<p>These numbers have to be inferior or equal to the number of players in the team.</p>
+
+<h3 class="no_toc" id="visiting-players-list">Visiting players list</h3>
+
+<p>Same as for the visiting teams.  The number of players and the number of double teams have to be equal in both teams.</p>
+
+<h3 class="no_toc" id="match-results">Match results</h3>
+
+<p>There are three possibilities.  The first letter of this column indicates the used method :</p>
+
+<ul>
+  <li><strong>S</strong> : Only the final match result (in sets) is provided.</li>
+  <li><strong>P</strong> : All match points are provided</li>
+  <li><strong>U</strong> : Only the final result is provided (without details)</li>
+</ul>
+
+<p><strong>Individual results in sets (“S”)</strong></p>
+
+<p>The column starts with ‘S’.</p>
+
+<p>This letter is followed by a sequence of numbers between 0 and 9 or dashes (-). Every character represents the result of an individual match:</p>
+
+<ul>
+  <li>0 = Victory 0-3 (or 0-4) of the visiting player</li>
+  <li>1 = Victory 1-3 (or 1-4) of the visiting player</li>
+  <li>2 = Victory 2-3 (or 2-4) of the visiting player</li>
+  <li>3 = Victory 3-0 (or 4-0) of the home player</li>
+  <li>4 = Victory 3-1 (or 4-1) of the home player</li>
+  <li>5 = Victory 3-2 (or 4-2) of the home player</li>
+  <li>6 = Victory 3-4 of the visiting player</li>
+  <li>7 = Victory 4-3 of the home player</li>
+  <li>8 = W-O of the home player = victory of the visiting player</li>
+  <li>9 = W-O of the visiting player = victory of the home player</li>
+  <li>dash (-) = W-O of both the home and the visiting player</li>
+</ul>
+
+<p>The number of characters must correspond with the number of individual matches in the team match.</p>
+
+<p class="label label-blue">Examples</p>
+
+<p><code class="highlighter-rouge">S0403502540950509</code>, <code class="highlighter-rouge">S4143443441445345</code> or <code class="highlighter-rouge">S9999999999999999</code>.</p>
+
+<p><strong>Individual results in points (“P”)</strong></p>
+
+<p>The column starts with ‘P’.</p>
+
+<p>This letter is followed by a list of individual match results seperated by commas (,).  The number of individual match results must be equal to the number of individual matches in the team match. In case of W-O the individual match result is :</p>
+
+<ul>
+  <li>8 = W-O of the home player</li>
+  <li>9 = W-O of the visiting player</li>
+  <li>dash (-) = W-O of both the home and the visiting player</li>
+</ul>
+
+<p>A match result consists of a list of match results separated by a a slash (/).<br />
+A set result is the number of points scored by the set looser. If the visiting player wins the set, this number is preceded by a dash (-).</p>
+
+<p class="label label-blue">Example</p>
+
+<p>The individual match result is <code class="highlighter-rouge">11-7 / 4-11 / 11-8 / 11-5</code></p>
+
+<p>This score will be represented by : <code class="highlighter-rouge">7/-4/8/5</code></p>
+
+<p><strong>Team match score (“U”)</strong></p>
+
+<p>The column starts with ‘U’.</p>
+
+<p>This letter is followed by the team match score.  This result consists of :</p>
+
+<ul>
+  <li>The number of individual matches won by the home team</li>
+  <li>A dash (-)</li>
+  <li>The number of individual matches won by the visiting team</li>
+</ul>
+
+<p class="label label-blue">Examples</p>
+
+<p><code class="highlighter-rouge">15-1</code> or <code class="highlighter-rouge">7-3</code> or <code class="highlighter-rouge">6-9</code>.</p>
+
+<h3 class="no_toc" id="responsibles">Responsibles</h3>
+
+<p>This column is optional.</p>
+
+<p>The column consists of a list of 4 player indexes, separated by commas (,).<br />
+These players are :</p>
+
+<ul>
+  <li>The captain of the home team</li>
+  <li>The captain of the visiting team</li>
+  <li>The team match referee</li>
+  <li>The hall commissionary</li>
+</ul>
+
+<p>The hall commissionary is optional.</p>
+
+<h3 class="no_toc" id="hours">Hours</h3>
+
+<p>This column is optional.</p>
+
+<p>The column consists of two hour groups separated by commas (,). The format is HH:MM where HH is the number of hours and MM the number of minutes.  These two hour groups correspond with :</p>
+
+<ul>
+  <li>The team match starting hour</li>
+  <li>The team match ending hour</li>
+</ul>
+
+<h3 class="no_toc" id="comments">Comments</h3>
+
+<p>This column is optional.</p>
+
+<p>The column starts with a double quote (“) and ends with a double quote (“).  The rest of the line is considered as comments.  A carriage return is replaced by the sequence “backslash-character n” (\n).  A backslash () is represented by a double backslash (\).</p>
+
+<p class="label label-blue">Examples</p>
+
+<p>Team match <a href="https://competitie.vttl.be/?season=6&amp;week_name=17&amp;sel=3&amp;detail=1&amp;div_id=127&amp;club_id=0&amp;menu=4">Tienen A - Werchter A</a> in first division, province of Flemish Brabant &amp; Brussels of season 2005-2006:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;Example format !TabT-Upload / match Tienen A - Werchter A
+I;6;17/003;VLB330;VLB295;506080,505415,-506077,506077;505198,506082,505974,505973;S1824181008052811
+</code></pre></div></div>
+
+<p>Team match <a href="https://competitie.vttl.be/?season=6&amp;week_name=07&amp;sel=4&amp;detail=1&amp;div_id=139&amp;club_id=0&amp;menu=4">Herckenrode A - Pingouin Leuven A</a> in regional series A (Ladies) of season 2005-2006:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;Example format !TabT-Upload / match Herckenrode A - Pingouin Leuven A
+I;6;L07/054;LK49;VLB5;506862,506778,506855,1-2;505256,505852,505855,1-3;S5232043505
+</code></pre></div></div>
+
+<p>Team match <a href="https://competitie.vttl.be/?season=6&amp;modif=0&amp;club_id=0&amp;week_name=07&amp;div_id=144">Kobelco Verdinamur A-Hoeselt A</a>, in second national division, series A of season 2005-2006:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;Example format !TabT-Upload / match Kobelco Verdinamur A-Hoeselt A
+I;6;N07/044;N51;LK103;;;U13-3
+</code></pre></div></div>
+
+<p>Team match <a href="https://competitie.vttl.be/?season=6&amp;menu=4&amp;club_id=0&amp;sel=2&amp;div_id=133&amp;modif=0&amp;detail=1">Hurricane H-TT VMS D</a>, in fourth provincial division, series B, province of Flemish Brabant &amp; Brussels of season 2005-2006:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;Example format !TabT-Upload / match Hurricane H - TT VMS D
+I;6;19/038;VLB225;VLB318;505393,505280,505282,509986;505460,506003,505996,506008;P-9/4/5/4,9/1/3,5/7/6,7/3/8,5/4/2,8/9/8,10/-9/-7/6/-6,12/4/-5/9,4/5/5,9/2/-9/9,9/-10/2/2,8/4/9,9/8/4,-5/9/5/9,8/3/1,11/10/6;505385,505460,505385;19:45,22:45
+</code></pre></div></div>
+
+<p>When a team withdraws a match, team composition is not known by the other party and player affiliation numbers must be replaced by question marks</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;Example format TabT-Upload / visited team withdraws
+I;10;05/131;WVL72;WVL78;?,?,?,?;500352,501728,509376,513547;P8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+</code></pre></div></div>
+
+<h2 id="line-tr--change-in-a-tournament-configuration">Line “TR” : Change in a tournament configuration</h2>
+
+<p><em><strong>TODO</strong></em></p>
+
+<h2 id="line-t--change-in-a-tournament-result">Line “T” : Change in a tournament result</h2>
+
+<p>This line allows the registration of a tournament match result.</p>
+
+<p>This line type needs the next additional columns:</p>
+
+<h3 class="no_toc" id="season-1">Season</h3>
+
+<p>Identifier of the season during which the tournament takes place (see also the same field for <em>Line “I”</em> above).</p>
+
+<h3 class="no_toc" id="tournament-identifier">Tournament identifier</h3>
+
+<p>Unique tournament identifier. This identifier is defined by the ‘‘Reference’’ field in the ‘‘Tournament’’ section of TabT.</p>
+
+<p>If there is no defined tournament identifier, the tournament name can be used. Case, accents and spaces will be ignored.</p>
+
+<h3 class="no_toc" id="categorie">Categorie</h3>
+
+<p>Age categorie of the match series. The categorie must correspond to the tournament definition in TabT.</p>
+
+<p>Typical values are:</p>
+
+<ul>
+  <li>POU = Poussins/Benjamins</li>
+  <li>PRE = Preminimes</li>
+  <li>MIN = Minimes</li>
+  <li>CAD = Cadets</li>
+  <li>JUN = Juniors</li>
+  <li>J21 = Youth -21</li>
+  <li>SEN = Seniors</li>
+  <li>V40 = Veterans +40</li>
+  <li>V50 = Veterans +50</li>
+  <li>V60 = Veterans +60</li>
+  <li>V70 = Veterans +70</li>
+  <li>V80 = Veterans +80</li>
+  <li>V85 = Veterans +85</li>
+</ul>
+
+<h3 class="no_toc" id="gender">Gender</h3>
+
+<ul>
+  <li>H : Gentlemen</li>
+  <li>D : Ladies</li>
+</ul>
+
+<p>The <em>gender</em> field must correspond to the tournament definition in TabT.</p>
+
+<h3 class="no_toc" id="series-name">Series name</h3>
+
+<p>Match series name. The name must correspond to the tournament definition in TabT. Case, accents and spaces will be ignored.</p>
+
+<h3 class="no_toc" id="round-number">Round number</h3>
+
+<p>For a later use. For the moment this field must be empty.</p>
+
+<h3 class="no_toc" id="match-identifier-1">Match identifier</h3>
+
+<p>Unique match identifier within the series. The identifier must be a positive number.</p>
+
+<h3 class="no_toc" id="identifier-player-1">Identifier player 1</h3>
+
+<p>Identifier for the first player. The identifier is a 6 digit number.</p>
+
+<h3 class="no_toc" id="identifier-player-2">Identifier player 2</h3>
+
+<p>Identifier for the second player. The identifier is a 6 digit number.</p>
+
+<h3 class="no_toc" id="match-result">Match result</h3>
+
+<p>The match result composed of the following elements:</p>
+
+<ul>
+  <li>The number of sets won by the first player</li>
+  <li>a dash (-)</li>
+  <li>The number of sets won by the second player</li>
+</ul>
+
+<p>One of the two players must have won more sets than the other and this number must correspond to the number of sets to win defined in the series or tour configuration. The other player must have a lower number of sets, that is however higher or equal to 0.</p>
+
+<p class="label label-blue">Example</p>
+
+<p>Tournamnent results <a href="https://competitie.vttl.be/?season=6&amp;menu=7&amp;viewresults=1&amp;t_id=123&amp;s_id=537">Criterium Senior Vlaams-Brabant 2005-2006 - Serie C Woman</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C;Criterium Senior Vlaams-Brabant 2005-2006 - Serie C Woman
+T;6;Seniorscriterium Vlaams Brabant;SEN;D;C;;1;505852;505855;3-1
+T;6;Seniorscriterium Vlaams Brabant;SEN;D;C;;2;505256;501243;1-3
+T;6;Seniorscriterium Vlaams Brabant;SEN;D;C;;3;505852;505256;3-0
+T;6;Seniorscriterium Vlaams Brabant;SEN;D;C;;4;505855;505256;1-3
+T;6;Seniorscriterium Vlaams Brabant;SEN;D;C;;5;501243;505852;1-3
+T;6;Seniorscriterium Vlaams Brabant;SEN;D;C;;6;501243;505855;3-0
+</code></pre></div></div>
+
+<h2 id="line-n--change-in-the-new-ranking-of-a-player">Line “N” : Change in the new ranking of a player</h2>
+
+<p>This line allows the modification of the new player’s ranking.</p>
+
+<p>Only users who have <code class="highlighter-rouge">ADMIN</code> and <code class="highlighter-rouge">CLASS</code> can use this function.</p>
+
+<p>This line type needs the following extra columns:</p>
+
+<h3 class="no_toc" id="season-2">Season</h3>
+
+<p>Identifier of the season at the end of which the new ranking will be changed (see also the “I” line ‘‘season’’ field).</p>
+
+<p><strong>Important</strong>: This is not the season in which the new class will be valable (but the previous season).</p>
+
+<h3 class="no_toc" id="player-identifier">Player identifier</h3>
+
+<p>Player identifier for whom the new ranking has to be changed. The identifier is a 6 digit number.</p>
+
+<h3 class="no_toc" id="category">Category</h3>
+
+<p>The ranking category for which the new ranking has to be changed. Possible categories are :</p>
+
+<ul>
+  <li>H = Gentlemen</li>
+  <li>D = Ladies</li>
+</ul>
+
+<h3 class="no_toc" id="new-ranking">New ranking</h3>
+
+<p>The player’s new ranking.  Rankings depends on the configuration.</p>
+
+<p>Typical rankings for Table Tennis federation are:</p>
+
+<ul>
+  <li>Gentlemen = NC or NG, E6, E4, E2, E0, D6, D4, D2, D0, C6, C4, C2, C0, B6, B4, B2, B0, A## or As## (where ## is a number).</li>
+  <li>Ladies = NC or NG, D6, D4, D2, D0, C6, C4, C2, C0, B6, B4, B2, B0, A## or As## (where ## is a number).</li>
+</ul>
+
+<h2 id="line-p--change-in-a-player-information">Line “P” : Change in a player information</h2>
+
+<p><em><strong>TODO</strong></em></p>
+
+<h2 id="line-l--change-in-a-team-match-schedule">Line “L” : Change in a team match schedule</h2>
+
+<h3 class="no_toc" id="season-3">Season</h3>
+
+<p>Identifier of the season when the match is played (see also the same field for <em>Line “I”</em> above).</p>
+
+<h3 class="no_toc" id="match-identifier-2">Match identifier</h3>
+
+<p>Unique identifier of the match for which the date will be changed (see also the same field for <em>Line “I”</em> above).</p>
+
+<h3 class="no_toc" id="change-type">Change type</h3>
+
+<p>The type of change to proceed:</p>
+
+<ul>
+  <li><strong>R</strong>: Reset to the official date of the match</li>
+  <li><strong>U</strong>: Update the schedule of the match</li>
+  <li><strong>I</strong>: Invert matches between first and second round</li>
+</ul>
+
+<p><strong>Important</strong>: if the change type is <strong>U</strong>, additional columns are required</p>
+
+<h3 class="no_toc" id="change-date">Change date</h3>
+
+<p>If the change type is <strong>U</strong>, this parameter is considered; otherwise it will be ignored.</p>
+
+<p>Indicates the new date of the match.  If left empty, the official date of the match will be used.</p>
+
+<p>Format must be <code class="highlighter-rouge">YYYY-MM-DD</code> where:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">YYYY</code> is the year on 4 digits,</li>
+  <li><code class="highlighter-rouge">MM</code> is the month on 2 digits (including leading 0 if necessary),</li>
+  <li><code class="highlighter-rouge">DD</code> is the day on 2 digits (including leading 0 if necessary).</li>
+</ul>
+
+<h3 class="no_toc" id="change-time">Change time</h3>
+
+<p>If the change type is <strong>U</strong>, this parameter is considered; otherwise it will be ignored.</p>
+
+<p>Indicates the new hour of the match.  If left empty, the official hour of the match will be used.</p>
+
+<p>Format must be <code class="highlighter-rouge">HH-MM</code> where:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">HH</code> is the hour on 2 digits (24 hours format, including leading 0 if necessary),</li>
+  <li><code class="highlighter-rouge">DD</code> is the minute on 2 digits (including leading 0 if necessary).</li>
+</ul>
+
+<h3 class="no_toc" id="change-venue">Change venue</h3>
+
+<p>If the change type is <strong>U</strong>, this parameter is considered; otherwise it will be ignored.</p>
+
+<p>Indicates the new venue of the match.  If left empty, the official venue of the match will be used.</p>
+
+<p>Format must be <code class="highlighter-rouge">CLUB_ID,VENUE_ID</code> where:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">CLUB_ID</code> is the unique identifier of the club (see field “Home club” for <em>Line “I”</em> above),</li>
+  <li><code class="highlighter-rouge">VENUE_ID</code> is the unique identifier of the club venue (typically 1 when there is only one venue for the club).</li>
+</ul>
+
+<p class="label label-blue">Examples</p>
+
+<p>Invert matches between Humbeek C and Hurricane C in <a href="https://competitie.vttl.be/?season=20&amp;div_id=4260&amp;menu=3&amp;type=3&amp;club_id=0">division 3A province of Flemish Brabant &amp; Brussels of season 2019-2020</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L;20;PVLBH11/019;I
+</code></pre></div></div>
+
+<p>Change hour of match Saint-Piat G and Essor Luna Marquain E in <a href="https://competitie.vttl.be/?season=20&amp;div_id=4448&amp;menu=3&amp;type=3&amp;club_id=0&amp;province=14">division 5A province of Hainaut of season 2019-2020</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L;20;PVLBH11/019;U;2019-09-28;15:00
+</code></pre></div></div>
+
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
