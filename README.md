@@ -1,6 +1,7 @@
 ﻿# TabT-API
 
 [![License][license-badge]][license-url]
+[![Travis][travis-badge]][travis-url]
 
 TabT provides a complete and powerful software suite to access and manage results of matches,
 tournaments and competitions of individual sports like table tennis or darts.
@@ -39,3 +40,5 @@ See http://www.gnu.org/licenses/agpl-3.0.html for more information
 
 [license-badge]: https://img.shields.io/badge/License-AGPL-blue.svg?style=flat
 [license-url]: LICENSE
+[travis-badge]: https://travis-ci.org/gfrenoy/TabT-doc.svg?branch=master
+[travis-url]: https://travis-ci.org/gfrenoy/TabT-doc
