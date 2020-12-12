@@ -25,7 +25,7 @@ aux_links:
       - "https://tabt-dev.vttl.be"
 
 # Footer content appears at the bottom of every page's main content
-footer_content: "Copyright &copy; 2001-2019 Gaëtan Frenoy. Distributed by an <a href=\"https://github.com/gfrenoy/TabT-doc/tree/master/LICENSE\">GNU Affero General Public License.</a>"
+footer_content: "Copyright &copy; 2001-2020 Gaëtan Frenoy. Distributed by an <a href=\"https://github.com/gfrenoy/TabT-doc/tree/master/LICENSE\">GNU Affero General Public License.</a>"
 
 # AsciiDoc specific
 asciidoc: {}
