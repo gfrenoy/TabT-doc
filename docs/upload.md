@@ -466,3 +466,122 @@ Change hour of match Saint-Piat G and Essor Luna Marquain E in [division 5A prov
 ```
 L;20;PVLBH11/019;U;2019-09-28;15:00
 ```
+
+## Line "F" : Change in fine types definition
+
+With this line type, one can add or change the definition of fine types.  It needs the following columns:
+
+- Season
+- Level
+- Identifier
+- Language
+- Description
+- Value
+
+The optional following columns can be given:
+
+- Deviations list
+- Maximum value
+- Order
+
+A fine type is a generic description of a fine that can be assigned to a club.
+
+A fine type is uniquely identified by the combination of the season, the level and its identifier.  If this combination does not exist in the system, a new fine type will be created.  If this combination already exists, the found fine type will be overwritten.
+
+### Season
+{: .no_toc }
+
+Identifier of the season for which the fine type must be considered (see also the same field for _Line "I"_ above).
+
+### Level
+{: .no_toc }
+
+Identifier of the level for which the fine must be considered.  A level is representing a group of divisons that are managed the same way.
+
+Examples
+{: .label .label-blue }
+
+For the 2 main Belgian Table Tennis federations (VTTL & AFTT), the following levels have been defined:
+
+- 6 = Super division
+- 1 = National
+- 15 = Regional VTTL
+- 16 = Regional AFTT
+- 4 = Province Hainaut
+- 5 = Province Brussel & Vlaams-Brabant
+- 7 = Province Oost-Vlaanderen
+- 8 = Province Antwerpen
+- 9 = Province West-Vlaanderen
+- 10 = Province Limburg-Kempen
+- 11 = Province Bruxelles & Brabant Wallon
+- 12 = Province Namur
+- 13 = Province Liège
+- 14 = Province Luxembourg
+
+### Identifier
+{: .no_toc }
+
+Identifier of the considered fine type.  It is specific to the considered level so it means that several levels can use the same identifier for different fine types.
+
+### Language
+{: .no_toc }
+
+The language of the description of the fine type (see next field).
+
+### Description
+{: .no_toc }
+
+A description of fine type.
+
+### Value
+{: .no_toc }
+
+The value of the fine to be paid by the club when the considered type of fine is assigned to the club.
+This is only a default value that can be overwritten when the fine is created.
+
+### Deviations list
+{: .no_toc }
+
+The list of deviations that are associated with this fine type.
+
+### Maximum value
+{: .no_toc }
+
+If not given:
+- an existing fine type will keep its maximum value,
+- a new fine type will have no maximum value.
+
+### Order
+{: .no_toc }
+
+The display order of this fine type.
+
+If not given:
+- an existing fine type will keep its order,
+- a new fine type will be given an order that is equal to the maximum order found plus 10.
+
+Examples
+{: .label .label-blue }
+
+```
+F;21;9;C.18;nl;Opstellen niet gekwalificeerde speler;25;9|18;;1
+```
+
+## Line "FD" : Delete fine types
+
+With this line type, one can delete the definition of fine types.  It needs the following columns:
+
+- Season
+- Level
+- Identifier
+
+A fine type is uniquely identified by the combination of the season, the level and its identifier.  If this combination does not exist in the system, nothing will be done.  If this combination exists, the found fine type will be deleted.
+
+A fine type cannot be deleted if some fines of this fine type have been assigned to a club.
+
+Examples
+{: .label .label-blue }
+
+```
+F;21;9;C.18
+```
